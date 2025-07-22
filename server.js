@@ -19,7 +19,7 @@ const connect = async () => {
 };
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+const port = process.env.PORT ? process.env.PORT : '3000';
 
 connect();
 app.use(express.urlencoded({ extended: false }));
@@ -49,6 +49,6 @@ app.use(isSignedIn);
 app.use(passUserToView);
 app.use('/users/:userId/applications', applicationsController);
 
-app.listen(3000, () => {
-  console.log(`The express app is ready on port ${3000}!`);
+app.listen(port, () => {
+  console.log(`The express app is ready on port ${port}!`);
 });
