@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
+
+  <title>Your Reservations</title>
+</head>
+
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+
+    <div class="all-apps-body">
+      <div class="all-apps-header">
+        <h3>Welcome bestie!</h3>
+        <h4>Your Reservations</h4>
+
+        <ul>
+          <% events.forEach((event)=> { %>
+            <li>
+              <a class="add-app-link" href="/users/<%= user._id %>/applications/<%= event._id %>">
+                <%= event.title %> on <%= new Date(event.date).toLocaleString() %>
+              </a>
+            </li>
+            <% }) %>
+        </ul>
+
+        <a class="add-app-link" href="/users/<%= user._id %>/applications/new">
+          Add a reservation
+        </a>
+      </div>
+    </div>
+</div>
+
+</html>

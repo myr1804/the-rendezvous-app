@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/start.css" />
+    <title>Add a New event</title>
+</head>
+
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+        <h1>Add a New event</h1>
+        <form action="/users/<%= user._id %>/applications" method="POST">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" required />
+
+            <label for="date">Date and Time:</label>
+            <input type="datetime-local" name="date" id="title" required />
+
+            <label for="details">Details:</label>
+            <textarea name="details" id="details"></textarea>
+
+
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="yes">Hell yeah!</option>
+                <option value="no">Nah</option>
+                <option value="maybe">Hmmm maybe</option>
+            </select>
+
+            <button type="submit">Create Event</button>
+        </form>
+</body>
+
+</html>

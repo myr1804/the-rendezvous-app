@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>Editing <%= event.title %>
+  </title>
+</head>
+
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+
+    <h1>Edit <%= event.title %> at <%= new Date(event.date).toLocaleString() %>
+    </h1>
+
+    <form action="/users/<%= user._id %>/applications/<%= event._id %>?_method=PUT" method="POST">
+      <label for="title">Title:</label>
+      <input type="text" name="title" id="title" value="<%= event.title %>">
+
+      <label for="date">Date and Time:</label>
+
+      <input type="datetime-local" id="date" name="date" value="<%= event.date %>">
+
+      <label for="details">Details:</label>
+      <textarea name="details" id="details"><%= event.details %></textarea>
+
+      <label for="status">Status:</label>
+      <select id="status" name="status">
+        <option value="yes" <%=event.status==="yes" ? "selected" : "" %>>Hell yeah!</option>
+        <option value="no" <%=event.status==="no" ? "selected" : "" %>>Nah</option>
+        <option value="maybe" <%=event.status==="maybe" ? "selected" : "" %>>Hmm maybe</option>
+      </select>
+
+      <button type="submit">Update Event</button>
+    </form>
+
+</html>

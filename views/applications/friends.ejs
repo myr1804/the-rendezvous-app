@@ -1,0 +1,13 @@
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+
+  <h3>Friends</h3>
+
+  <p>
+    You have <%= friends.length %> 
+  </p>
+
+  <a class="add-app-link" href="/users/<%= user._id %>/applications/friends">
+    View All Friends
+  </a>
+</body>

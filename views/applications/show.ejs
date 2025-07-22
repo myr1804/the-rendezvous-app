@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/stylesheets/show.css" />
+
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+    <div class="show-body">
+      <div class="show-header">
+
+        <h3> You are invited to <%= event.title %> on <%= new Date(event.date).toLocaleString() %>
+        </h3>
+        <div class="show-sidebar">
+          <div class="show-actions">
+            <a href="/users/<%= user._id %>/applications/<%= event._id %>/edit">
+              Edit this event
+            </a>
+            <form action="/users/<%= user._id %>/applications/<%= event._id %>?_method=DELETE" method="POST">
+              <button type="submit">Delete this event</button>
+            </form>
+          </div>
+          <p>Current Status: <%= event.status %>
+          </p>
+        </div>
+      </div>
+      <div class="show-notes">
+        <h2>Details:</h2>
+        <p>
+          <%= event.details%>
+        </p>
+      </div>
+    </div>
+</body>
